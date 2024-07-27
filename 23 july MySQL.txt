@@ -1,0 +1,88 @@
+
+siddharth=# alter table emp rename column city to e_city;
+ALTER TABLE
+siddharth=# select*from emp;
+ e_no |   e_name   |     designation      | salary | date_of_joining |         email         | e_city | phone_no
+------+------------+----------------------+--------+-----------------+-----------------------+--------+----------
+    3 | .mr.Sai    | senior Assis manager |  58800 | 28/04/2024      | orangeitech@gmail.com | delhi  |
+    1 | .mr.ram    | Ceo                  |  53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+    2 | .mr.Raj    | senior manager       |  57750 | 15/06/2019      | orangeitech@gmail.com | mumbai |
+(3 rows)
+
+
+                                                  
+siddharth=# select e_name from emp where e_city='pune'or e_city='mumbai';
+   e_name
+------------
+ .mr.ram
+ .mr.Raj
+(2 rows)
+
+
+
+siddharth=# select e_name,salary,designation from emp where salary>=600000 or designation='manager'or designation='Ceo';
+   e_name   | salary | designation
+------------+--------+-------------
+ .mr.ram |  53865 | Ceo
+(1 row)
+
+
+siddharth=# update emp set salary=salary+(salary*0.05)where salary>'55000' or phone_no=12345678;
+UPDATE 2
+siddharth=# select*from emp;
+ e_no |   e_name   |     designation      | salary  | date_of_joining |         email         | e_city | phone_no
+------+------------+----------------------+---------+-----------------+-----------------------+--------+----------
+    1 | .mr.ram    | Ceo                  |   53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+    3 | .mr.Sai    | senior Assis manager |   61740 | 28/04/2024      | orangeitech@gmail.com | delhi  |
+    2 | .mr.Raj    | senior manager       | 60637.5 | 15/06/2019      | orangeitech@gmail.com | mumbai |
+(3 rows)
+
+
+
+DELETE 0
+siddharth=# delete from emp where e_no>=3;
+DELETE 1
+siddharth=# select*from emp;
+ e_no |   e_name   |  designation   | salary  | date_of_joining |         email         | e_city | phone_no
+------+------------+----------------+---------+-----------------+-----------------------+--------+----------
+    1 | .mr.ram    | Ceo            |   53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+    2 | .mr.Raj    | senior manager | 60637.5 | 15/06/2019      | orangeitech@gmail.com | mumbai |
+(2 rows)
+
+
+siddharth=# select distinct e_name from emp;
+   e_name
+------------
+ .mr.ram
+ .mr.Raj 
+
+
+siddharth=# select distinct e_city from emp where designation='Ceo';
+ e_city
+--------
+ pune
+(1 row)
+
+
+
+siddharth=# select *from emp where salary between '50000' AND '60000';
+ e_no |   e_name   | designation | salary | date_of_joining |         email         | e_city | phone_no
+------+------------+-------------+--------+-----------------+-----------------------+--------+----------
+    1 | .mr.ram    | Ceo         |  53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+(1 row)
+
+
+
+siddharth=# select* from emp where salary between '50000' AND '60000' or e_city='pune';
+ e_no |   e_name   | designation | salary | date_of_joining |         email         | e_city | phone_no
+------+------------+-------------+--------+-----------------+-----------------------+--------+----------
+    1 | .mr.ram    | Ceo         |  53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+(1 row)
+
+
+siddharth=# select *from emp where e_no between '1'AND'3' or e_name='.mr.advait';
+ e_no |   e_name   |  designation   | salary  | date_of_joining |         email         | e_city | phone_no
+------+------------+----------------+---------+-----------------+-----------------------+--------+----------
+    1 | .mr.ram    | Ceo            |   53865 | 18/01/2024      | orangeitech@gmail.com | pune   |
+    2 | .mr.Raj    | senior manager | 60637.5 | 15/06/2019      | orangeitech@gmail.com | mumbai |
+(2 rows)
